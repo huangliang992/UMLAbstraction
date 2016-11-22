@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>  
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.hainu.cs.bean">  
+    <class name="User">  
+        <id name="id">  
+            <generator class="uuid"/>  
+        </id>  
+    <property name="username"/>  
+    <property name="password"/> 
+    <property name="email"/> 
+    <property name="tel"/>
+    <property name="adress"/>
+    <property name="work"/>
+    </class>  
+      
+</hibernate-mapping>  

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="Login" class="com.hainu.cs.action.UserAction"
+			method="checkUser">
+			<result name="ERROR">login.jsp</result>
+			<result name="SUCCESS">welcom.jsp</result>
+		</action>
+		<action name="Sign" class="com.hainu.cs.action.UserAction">
+			<result name="SUCCESS">login.jsp</result>
+		</action>
+
+		<action name="UploadInfo" class="com.hainu.cs.action.UserFileSysAction">
+			<result name="SUCCESS">welcom.jsp</result>
+		</action>
+
+		<action name="CheckFile" class="com.hainu.cs.action.UserFileSysAction"
+			method="checkFile">
+			<result name="SUCCESS">welcom.jsp</result>
+		</action>
+
+		<action name="DownloadUfile" class="com.hainu.cs.action.UserFileSysAction"
+			method="executed">
+			<result name="SUCCESS" type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="contentDisposition">attachment;fileName="${dfileName}"</param>
+				<param name="inputName">dfileDownload</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+		<action name="FY" class="com.hainu.cs.action.UserFileSysAction" method="fYe">
+			<result name="SUCCESS">welcom.jsp</result>
+		</action>
+		
+	</package>
+
+	<package name="p1" namespace="/user" extends="struts-default">
+		<action name="Detail">
+			<result>detail.jsp</result>
+		</action>
+	</package>
+
+	<package name="file" namespace="/fileoperate" extends="struts-default">
+
+		<action name="Upload" class="com.hainu.cs.action.FileUploadAction">
+			<result name="SUCCESS">upload.jsp</result>
+			<result name="False">upload.jsp</result>
+			<result name="False1">upload.jsp</result>
+		</action>
+
+		<action name="FindPath" class="com.hainu.cs.action.FindPathAction">
+			<result name="SUCCESS">findpath.jsp</result>
+		</action>
+
+		<action name="FindCir" class="com.hainu.cs.action.FindCirculationAction">
+			<result name="SUCCESS">findcirculation.jsp</result>
+		</action>
+
+		<action name="AbsPath" class="com.hainu.cs.action.AbstractPathAction">
+			<result name="SUCCESS">abstractpath.jsp</result>
+		</action>
+
+		<action name="CountCor" class="com.hainu.cs.action.CountCorrelationAction">
+			<result name="SUCCESS">countcorrelation.jsp</result>
+		</action>
+
+		<action name="CountRank" class="com.hainu.cs.action.CountClassRankAction">
+			<result name="SUCCESS">countclassrank.jsp</result>
+		</action>
+
+		<action name="SortClass" class="com.hainu.cs.action.SortClassAction">
+			<result name="SUCCESS">sortclass.jsp</result>
+		</action>
+
+		<action name="GetBig" class="com.hainu.cs.action.GetBigPictureAction"
+			method="execute">
+			<result name="SUCCESS">getbigpicture.jsp</result>
+		</action>
+
+		<action name="GetBig1" class="com.hainu.cs.action.GetBigPictureAction"
+			method="executeb">
+			<result name="SUCCESS">getbigpicture.jsp</result>
+		</action>
+
+		<action name="GetBig2" class="com.hainu.cs.action.GetBigPictureAction"
+			method="executea">
+			<result name="SUCCESS">getbigpicture.jsp</result>
+		</action>
+
+		<action name="Download" class="com.hainu.cs.action.DownloadAction">
+			<result name="SUCCESS" type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="contentDisposition">attachment;fileName="${fileName}"</param>
+				<param name="inputName">fileDownload</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+
+		<action name="CheckFileList" class="com.hainu.cs.action.DownloadAction">
+			<result name="SUCCESS">
+				download.jsp
+			</result>
+		</action>
+
+
+	</package>
+
+
+
+</struts>
