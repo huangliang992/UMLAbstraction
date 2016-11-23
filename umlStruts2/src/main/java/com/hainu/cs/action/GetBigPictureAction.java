@@ -16,15 +16,15 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GetBigPictureAction extends ActionSupport{
-	private String level;//	接受抽象的层次
-	private String number;//接受抽象保留的类的个数
+	private String level;//	鎺ュ彈鎶借薄鐨勫眰娆�
+	private String number;//鎺ュ彈鎶借薄淇濈暀鐨勭被鐨勪釜鏁�
 	
-	private String classes1;//大图类信息的JSON字符串
-	private String ass1;//大图关联的JSON字符串
-	private String agg1;//聚集关系的JSON字符串
-	private String gl1;//泛化关系的JSON字符串
-	private String dp1;//依赖关系的JSON字符串
-	private String cp1;//组合关系
+	private String classes1;//澶у浘绫讳俊鎭殑JSON瀛楃涓�
+	private String ass1;//澶у浘鍏宠仈鐨凧SON瀛楃涓�
+	private String agg1;//鑱氶泦鍏崇郴鐨凧SON瀛楃涓�
+	private String gl1;//娉涘寲鍏崇郴鐨凧SON瀛楃涓�
+	private String dp1;//渚濊禆鍏崇郴鐨凧SON瀛楃涓�
+	private String cp1;//缁勫悎鍏崇郴
 	
 	
 	public String getClasses1() {
@@ -77,8 +77,8 @@ public class GetBigPictureAction extends ActionSupport{
 	}
 	
 	public void abstractInfo(ShowAbstractedClass sh) throws Exception{
-		JSONObject cjb=new JSONObject();//类的JSON对象
-        JSONObject asjb=new JSONObject();//关联
+		JSONObject cjb=new JSONObject();//绫荤殑JSON瀵硅薄
+        JSONObject asjb=new JSONObject();//鍏宠仈
         JSONObject agjb=new JSONObject();
         JSONObject gljb=new JSONObject();
         JSONObject dpjb=new JSONObject();
@@ -168,6 +168,7 @@ public class GetBigPictureAction extends ActionSupport{
 		ActionContext actionContext = ActionContext.getContext();   
         Map session = actionContext.getSession();   
         Object filepath=session.get("filepath"); 
+        if(filepath!=null){
         String fp=filepath.toString();
 
         ShowAbstractedClass sh=new ShowAbstractedClass();
@@ -181,12 +182,16 @@ public class GetBigPictureAction extends ActionSupport{
          session.put("cp1", cp1);
         
         return "SUCCESS";
+        }else {
+        	return "ERROR";
+        }
 	}
 	
 	public String executea() throws Exception{
 		ActionContext actionContext = ActionContext.getContext();   
         Map session = actionContext.getSession();   
         Object filepath=session.get("filepath"); 
+        if(filepath!=null){
         String fp=filepath.toString();
 
         ShowAbstractedClass sh=new ShowAbstractedClass();
@@ -203,12 +208,16 @@ public class GetBigPictureAction extends ActionSupport{
          session.put("cp1", cp1);
         
         return "SUCCESS";
+        }else {
+        	return "ERROR";
+        }
 	}
 	
 	public String executeb() throws Exception{
 		ActionContext actionContext = ActionContext.getContext();   
         Map session = actionContext.getSession();   
         Object filepath=session.get("filepath"); 
+        if(filepath!=null){
         String fp=filepath.toString();
 
         ShowAbstractedClass sh=new ShowAbstractedClass();
@@ -224,5 +233,9 @@ public class GetBigPictureAction extends ActionSupport{
          session.put("cp1", cp1);
         
         return "SUCCESS";
+        }else {
+        	return "ERROR";
+        }
+        
 	}
 }

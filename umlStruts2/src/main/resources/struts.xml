@@ -82,16 +82,19 @@
 		<action name="GetBig" class="com.hainu.cs.action.GetBigPictureAction"
 			method="execute">
 			<result name="SUCCESS">getbigpicture.jsp</result>
+			<result name="ERROR">upload.jsp</result>
 		</action>
 
 		<action name="GetBig1" class="com.hainu.cs.action.GetBigPictureAction"
 			method="executeb">
 			<result name="SUCCESS">getbigpicture.jsp</result>
+			<result name="ERROR">upload.jsp</result>
 		</action>
 
 		<action name="GetBig2" class="com.hainu.cs.action.GetBigPictureAction"
 			method="executea">
 			<result name="SUCCESS">getbigpicture.jsp</result>
+			<result name="ERROR">upload.jsp</result>
 		</action>
 
 		<action name="Download" class="com.hainu.cs.action.DownloadAction">
